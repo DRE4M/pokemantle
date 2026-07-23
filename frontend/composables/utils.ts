@@ -74,5 +74,14 @@ export const apiBase = (): string => {
 }
 
 export const missingPokemonImageUrl = (): string => {
-  return sprite_base.value + "/0.png"
+  return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+}
+
+export const fallbackPokemonImageUrl = (imagePath?: string): string => {
+  if (!imagePath) return missingPokemonImageUrl()
+  const cleanId = imagePath.replace(/\D/g, "")
+  if (cleanId && parseInt(cleanId) > 0) {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${cleanId}.png`
+  }
+  return missingPokemonImageUrl()
 }

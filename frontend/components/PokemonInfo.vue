@@ -9,7 +9,7 @@
           :alt="state.translatePokemonName(pokemon.name, false)"
           v-lazy="{
             src: pokemonImageUrl,
-            error: missingPokemonImageUrl(),
+            error: fallbackPokemonImageUrl(pokemon.image_path),
           }"
         />
       </div>

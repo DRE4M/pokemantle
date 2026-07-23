@@ -10,7 +10,7 @@
         :alt="state.translatePokemonName(guess_data.name, false)"
         v-lazy="{
           src: pokemonImageUrl,
-          error: missingPokemonImageUrl(),
+          error: fallbackPokemonImageUrl(pokemon?.image_path),
         }"
       />
     </td>
