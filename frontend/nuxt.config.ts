@@ -4,6 +4,13 @@ import fluentPlugin from "rollup-plugin-fluent-vue"
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@pinia/nuxt"],
+  nitro: {
+    vercel: {
+      functions: {
+        runtime: "nodejs20.x",
+      },
+    },
+  },
   typescript: {
     shim: false,
   },
