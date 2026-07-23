@@ -1,10 +1,36 @@
 import parser from "accept-language-parser"
 import { Buffer } from "buffer"
 
+export const puzzleOriginDate = new Date("2022-04-28T00:00:00")
+
+export const dateToPuzzleNumber = (dateStr: string): number => {
+  const target = new Date(dateStr)
+  if (isNaN(target.getTime())) return todayPuzzleNumber()
+  return Math.floor((target.getTime() - puzzleOriginDate.getTime()) / 86400000)
+}
+
+export const puzzleNumberToDateString = (puzzleNum: number): string => {
+  const date = new Date(puzzleOriginDate.getTime() + puzzleNum * 86400000)
+  return date.toISOString().split("T")[0]
+}
+
 export const todayPuzzleNumber = () => {
-  const origin = new Date("2022-04-28T00:00:00")
+  if (process.client) {
+    const urlParams = new URLSearchParams(window.location.search)
+    const puzzleParam = urlParams.get("puzzle")
+    if (puzzleParam && !isNaN(parseInt(puzzleParam))) {
+      return parseInt(puzzleParam)
+    }
+    const dateParam = urlParams.get("date")
+    if (dateParam) {
+      const target = new Date(dateParam)
+      if (!isNaN(target.getTime())) {
+        return Math.floor((target.getTime() - puzzleOriginDate.getTime()) / 86400000)
+      }
+    }
+  }
   const today = new Date()
-  const days = Math.floor((today.getTime() - origin.getTime()) / 86400000)
+  const days = Math.floor((today.getTime() - puzzleOriginDate.getTime()) / 86400000)
   return days
 }
 
