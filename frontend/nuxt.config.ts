@@ -3,6 +3,9 @@ import fluentPlugin from "rollup-plugin-fluent-vue"
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
+  },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@pinia/nuxt"],
   typescript: {
     shim: false,

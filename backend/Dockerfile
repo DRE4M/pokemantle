@@ -2,7 +2,7 @@ FROM python:3.9-slim as requirements-stage
 
 WORKDIR /tmp
 
-RUN pip install --no-cache-dir poetry
+RUN pip install --no-cache-dir "poetry<2.0.0"
 
 COPY ./pyproject.toml ./poetry.lock* /tmp/
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
