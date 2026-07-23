@@ -7,12 +7,19 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
+  routeRules: {
+    '/languages': { proxy: 'http://129.225.197.60:8000/languages' },
+    '/pokemons': { proxy: 'http://129.225.197.60:8000/pokemons' },
+    '/pokemon_name_map/**': { proxy: 'http://129.225.197.60:8000/pokemon_name_map/**' },
+    '/rank/**': { proxy: 'http://129.225.197.60:8000/rank/**' },
+    '/guess/**': { proxy: 'http://129.225.197.60:8000/guess/**' },
+  },
   runtimeConfig: {
-    apiServerBase: "http://localhost:8000",
+    apiServerBase: process.env.POKEMANTLE_API_SERVER_BASE || "http://129.225.197.60:8000",
     public: {
-      frontendBase: "http://localhost:3000",
-      apiClientBase: "http://localhost:8000",
-      spriteBase: "http://localhost:8001",
+      frontendBase: process.env.POKEMANTLE_FRONTEND_BASE || "http://localhost:3000",
+      apiClientBase: process.env.POKEMANTLE_API_CLIENT_BASE || "",
+      spriteBase: process.env.POKEMANTLE_SPRITE_BASE || "http://129.225.197.60:8001",
       gtagId: "GA_MEASUREMENT_ID",
     },
   },

@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { FetchError } from "ohmyfetch"
+import { FetchError } from "ofetch"
 import _ from "lodash"
 
 const state = useStore()

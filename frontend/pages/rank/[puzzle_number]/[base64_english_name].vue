@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { FetchError } from "ohmyfetch"
+import { FetchError } from "ofetch"
 
 const error_message = ref("")
 const puzzle_number = ref<undefined | number>(undefined)
