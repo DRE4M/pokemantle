@@ -9,8 +9,8 @@
       <img
         :alt="state.translatePokemonName(guess_data.name, false)"
         v-lazy="{
-          src: pokemonImageUrl,
-          error: fallbackPokemonImageUrl(pokemon?.image_path),
+          src: fallbackPokemonImageUrl(pokemon?.image_path),
+          error: pokemonImageUrl,
         }"
       />
     </td>

@@ -8,8 +8,8 @@
           class="mx-auto w-full max-w-[100px]"
           :alt="state.translatePokemonName(pokemon.name, false)"
           v-lazy="{
-            src: pokemonImageUrl,
-            error: fallbackPokemonImageUrl(pokemon.image_path),
+            src: fallbackPokemonImageUrl(pokemon.image_path),
+            error: pokemonImageUrl,
           }"
         />
       </div>
