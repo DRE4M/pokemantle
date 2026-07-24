@@ -2,8 +2,7 @@ pokemantle = Pokémantle
 pokemantle-index-subtitle = #{$puzzle_number}
 pokemantle-rank-subtitle = #{$puzzle_number} 전체 순위
 
-og-description = 오늘의 포켓몬을 맞춰보세요! 포켓몬 이름을 입력하면 정답과 얼마나 비슷한지 알려줍니다.
-
+og-description = 오늘의 포켓몬을 맞춰보세요! 포켓몬 이름을 입력하면 정답과 얼마나 비슷한지 알려줍니다. 여훈 화이팅!
 language-locale-en = English
 language-locale-ko = 한국어
 
